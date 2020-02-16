@@ -26,6 +26,9 @@ Out[10]: pyspark.sql.dataframe.DataFrame
  
 In [11]: p2h_df = H2OFrame(p_df)
  
+In [12]: type(p2h_df)
+Out[12]: h2o.frame.H2OFrame
+  
 ### Convert Spark Dataframe to H2OFrame and Pandas DataFrame ###
 
 In [13]: s_df = ss.read.csv("Documents/credit_count.txt", header = True, inferSchema = True)
@@ -59,6 +62,3 @@ In [23]: h2s_df = hc.as_spark_frame(h_df)
  
 In [24]: type(h2s_df)
 Out[24]: pyspark.sql.dataframe.DataFrame
-
-In [12]: type(p2h_df)
-Out[12]: h2o.frame.H2OFrame
