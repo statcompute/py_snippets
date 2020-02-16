@@ -1,19 +1,12 @@
 from tabulate import tabulate
-
 from astropy.io import ascii
-
 from itertools import groupby
-
-from collections import defaultdict
-
+from collections import defaultdict, OrderedDict
 from operator import itemgetter
 
 sel = ["year", "origin", "dest", "carrier", "distance", "air_time"]
-
 key = ["year", "origin"]
-
 tbl = ascii.read("nycflights.csv", format = 'csv', data_end = 6)[sel]
-
 lst = [dict(zip(r.colnames, r)) for r in tbl]
 
 for i in lst:
