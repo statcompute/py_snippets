@@ -8,22 +8,16 @@ with open("Downloads/nycflights.csv") as f:
  
 ### NUMBERS SHOWN AS STRINGS 
 pprint(l[0])
-#{'air_time': '227',
-# 'arr_delay': '11',
-# 'arr_time': '830',
-# 'carrier': 'UA',
-# 'day': '1',
-# 'dep_delay': '2',
-# 'dep_time': '517',
-# 'dest': 'IAH',
-# 'distance': '1400',
-# 'flight': '1545',
-# 'hour': '5',
-# 'minute': '17',
-# 'month': '1',
-# 'origin': 'EWR',
-# 'tailnum': 'N14228',
-# 'year': '2013'}
+'''
+{'air_time': '227',
+ 'arr_delay': '11',
+ 'arr_time': '830',
+ 'carrier': 'UA',
+ ... ...
+ 'origin': 'EWR',
+ 'tailnum': 'N14228',
+ 'year': '2013'}
+'''
 
 ### USING PANDAS ###
 from pandas import read_csv
