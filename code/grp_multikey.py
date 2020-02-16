@@ -10,7 +10,7 @@ from operator import itemgetter
 
 sel = ("year", "origin", "dest", "carrier", "distance", "air_time")
 
-key = ("year", "origin")
+key = ["year", "origin"]
 
 tbl = ascii.read("nycflights.csv", format = 'csv', data_end = 6)[sel]
 
