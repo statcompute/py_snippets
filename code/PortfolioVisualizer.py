@@ -7,13 +7,13 @@ import re
 
 import pandas as pd
 
-f1 = "MUB"
-f2 = "VTEB"
-bk = "VWITX"
-sd = "1%2F1%2F2015"
-ed = "1%2F31%2F2020"
-url = 'https://www.portfoliovisualizer.com/fund-performance?s=y&symbol=' + f1 + \
-      '&symbols=' + f2 + '&benchmark=' + bk + '&startDate=' + sd + '&endDate=' + ed
+fund1 = "MUB"
+fund2 = "VTEB"
+bench = "VWITX"
+sdate = "1%2F1%2F2015"
+edate = "1%2F31%2F2020"
+url   = 'https://www.portfoliovisualizer.com/fund-performance?s=y&symbol=' + fund1 + \
+      '&symbols=' + fund2 + '&benchmark=' + bench + '&startDate=' + sdate + '&endDate=' + edate
 
 headers = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36 QIHU 360SE'
