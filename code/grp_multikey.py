@@ -6,6 +6,8 @@ from itertools import groupby
 
 from collections import defaultdict
 
+from operator import itemgetter
+
 sel = ("year", "origin", "dest", "carrier", "distance", "air_time")
 
 key = ("year", "origin")
