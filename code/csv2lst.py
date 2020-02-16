@@ -12,7 +12,6 @@ pprint(l[0])
 {'air_time': '227',
  'arr_delay': '11',
  'arr_time': '830',
- 'carrier': 'UA',
  ... ...
  'origin': 'EWR',
  'tailnum': 'N14228',
@@ -32,22 +31,15 @@ d = read_csv("Downloads/nycflights.csv", nrows = n)
 #Wall time: 387 ms
  
 pprint(l1[0])
-#{'air_time': 227.0,
-# 'arr_delay': 11.0,
-# 'arr_time': 830.0,
-# 'carrier': 'UA',
-# 'day': 1,
-# 'dep_delay': 2.0,
-# 'dep_time': 517.0,
-# 'dest': 'IAH',
-# 'distance': 1400,
-# 'flight': 1545,
-# 'hour': 5.0,
-# 'minute': 17.0,
-# 'month': 1,
-# 'origin': 'EWR',
-# 'tailnum': 'N14228',
-# 'year': 2013}
+'''
+{'air_time': 227.0,
+ 'arr_delay': 11.0,
+ 'arr_time': 830.0,
+ ... ...
+ 'origin': 'EWR',
+ 'tailnum': 'N14228',
+ 'year': 2013}
+'''
 
 d2 = array_split(d, 4, axis = 0)
  
