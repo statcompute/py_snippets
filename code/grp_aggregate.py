@@ -1,17 +1,11 @@
 from tabulate import tabulate
-
 from astropy.io import ascii
-
 from itertools import groupby
-
 from collections import defaultdict
-
 from numpy import nanmedian, nanmean
 
 sel = ["year", "month", "origin", "dest", "carrier", "distance", "air_time"]
-
 tbl = ascii.read("nycflights.csv", format = 'csv', data_end = 51)[sel]
-
 lst = [dict(zip(r.colnames, r)) for r in tbl]
 
 class group:
@@ -20,9 +14,7 @@ class group:
     self.result = [(k, list(v)) for k, v in groupby(sort, itemgetter(*key))]
 
 key = ["origin"]
-
 grp = group(lst, key).result
-
 out = [dict(zip([*key, "cnt", "med_dist", "avg_time"], 
                 [x[0], 
                  len(x[1]), 
@@ -37,9 +29,7 @@ print(tabulate(out, headers = "keys"))
 #    159.71     17  LGA             1020
 
 key = ["year", "month", "origin"]
-
 grp = group(lst, key).result
-
 out = [dict(zip([*key, "cnt", "med_dist", "avg_time"], 
                 [*x[0], 
                  len(x[1]), 
