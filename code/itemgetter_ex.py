@@ -12,7 +12,7 @@ lst = [dict(zip(r.colnames, r)) for r in tbl]
 # {'year': 2013, 'dest': 'IAH', 'carrier': 'UA', 'origin': 'LGA', 'air_time': 227}
 # {'year': 2013, 'dest': 'MIA', 'carrier': 'AA', 'origin': 'JFK', 'air_time': 160}
 
-- SELECT
+### SELECT ###
 
 sel = ["origin", "dest", "carrier"]
 
@@ -24,8 +24,7 @@ sel = ["origin", "dest", "carrier"]
 # {'carrier': 'UA', 'dest': 'IAH', 'origin': 'LGA'}
 # {'carrier': 'AA', 'dest': 'MIA', 'origin': 'JFK'}
 
-
-- SORT
+### SORT ###
 
 key = ["origin", "air_time"]
 
