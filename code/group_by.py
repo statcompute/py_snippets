@@ -50,10 +50,10 @@ if __name__ == '__main__':
                      setup = "from __main__ import lst2dd, grp, lst",
                      number = n, repeat = r)
   print("Benchmarking:", 
-    "\n clj.group_by            :", str("{:.8f}".format(min(t1), 4)) + " - " + str("{:.8f}".format(max(t1), 4)), 
-    "\n cytoolz.groupby         :", str("{:.8f}".format(min(t2), 4)) + " - " + str("{:.8f}".format(max(t2), 4)), 
-    "\n itertools.groupby       :", str("{:.8f}".format(min(t3), 4)) + " - " + str("{:.8f}".format(max(t3), 4)), 
-    "\n collections.defaultdict :", str("{:.8f}".format(min(t4), 4)) + " - " + str("{:.8f}".format(max(t4), 4)))
+    "\n clj.group_by            :", str("{:.8f}".format(min(t1))) + " - " + str("{:.8f}".format(max(t1))), 
+    "\n cytoolz.groupby         :", str("{:.8f}".format(min(t2))) + " - " + str("{:.8f}".format(max(t2))), 
+    "\n itertools.groupby       :", str("{:.8f}".format(min(t3))) + " - " + str("{:.8f}".format(max(t3))), 
+    "\n collections.defaultdict :", str("{:.8f}".format(min(t4))) + " - " + str("{:.8f}".format(max(t4))))
 
 # Benchmarking:
 #  clj.group_by            : 0.02260390 - 0.03245390
