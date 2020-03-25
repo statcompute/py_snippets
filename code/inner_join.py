@@ -1,4 +1,4 @@
-import timeit, cytoolz, itertools
+import timeit, cytoolz, itertools, operator
 
 lx = [{'year': 1, 'acct': 1, 'x': 'x1'}, {'year': 1, 'acct': 2, 'x': 'x2'},
       {'year': 1, 'acct': 3, 'x': 'x3'}, {'year': 1, 'acct': 4, 'x': 'x4'},
