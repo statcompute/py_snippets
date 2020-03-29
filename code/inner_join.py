@@ -20,6 +20,8 @@ list(dict(x, **y) for x, y in itertools.product(lx, ly) if key_fn(x) == key_fn(y
 
 list(dict(_[0], **_[1]) for _ in cytoolz.groupby(key_fn, lx + ly).values() if len(_) > 1)
 
+[cytoolz.merge(x, y) for x in lx for y in ly if key_fn(x) == key_fn(y)]
+
 # OUTPUT:
 # [{'acct': 3, 'x': 'x3', 'y': 'y3', 'year': 1},
 #  {'acct': 4, 'x': 'x4', 'y': 'y4', 'year': 1},
@@ -40,14 +42,20 @@ if __name__ == '__main__':
   t4 = timeit.repeat(stmt   = "list(dict(_[0], **_[1]) for _ in cytoolz.groupby(key_fn, lx + ly).values() if len(_) > 1)",
                      setup  = "from __main__ import cytoolz, key_fn, lx, ly",
                      number = n, repeat = r)
+  t5 = timeit.repeat(stmt   = "[cytoolz.merge(x, y) for x in lx for y in ly if key_fn(x) == key_fn(y)]",
+                     setup  = "from __main__ import cytoolz, key_fn, lx, ly",
+                     number = n, repeat = r)
   print("Inner Join Benchmarking:", 
     "\n list comprehension :", str("{:.8f}".format(min(t1))) + " - " + str("{:.8f}".format(max(t1))), 
     "\n cytoolz.join       :", str("{:.8f}".format(min(t2))) + " - " + str("{:.8f}".format(max(t2))), 
     "\n itertools.product  :", str("{:.8f}".format(min(t3))) + " - " + str("{:.8f}".format(max(t3))), 
-    "\n cytoolz.groupby    :", str("{:.8f}".format(min(t4))) + " - " + str("{:.8f}".format(max(t4))))
+    "\n cytoolz.groupby    :", str("{:.8f}".format(min(t4))) + " - " + str("{:.8f}".format(max(t4))),
+    "\n cytoolz.merge      :", str("{:.8f}".format(min(t5))) + " - " + str("{:.8f}".format(max(t5))))
 
-# Inner Join Benchmarking:
-#  list comprehension : 0.00551250 - 0.01138910
-#  cytoolz.join       : 0.00270620 - 0.00816660
-#  itertools.product  : 0.00601720 - 0.01239960
-#  cytoolz.groupby    : 0.00297420 - 0.00770240
+#Inner Join Benchmarking:
+# list comprehension : 0.00556100 - 0.00800710
+# cytoolz.join       : 0.00271350 - 0.00450620
+# itertools.product  : 0.00585470 - 0.00811770
+# cytoolz.groupby    : 0.00297810 - 0.00462820
+# cytoolz.merge      : 0.00570810 - 0.00783010
+
