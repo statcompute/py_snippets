@@ -1,14 +1,13 @@
 import timeit, more_itertools, pydash, underscore, cytoolz, functional
 
-l = [{'year': 1, 'acct': 1, 'x': 'x1'}, {'year': 1, 'acct': 1, 'x': 'x1'},
-     {'year': 1, 'acct': 2, 'x': 'x2'}, {'year': 1, 'acct': 2, 'x': 'x2'}]
+l = [{'year': 1, 'acct': 1, 'x': 'x1'}, {'year': 1, 'acct': 2, 'x': 'x2'}] * 10000
 
 # Expected Output: 
 # [{'year': 1, 'acct': 1, 'x': 'x1'}, {'year': 1, 'acct': 2, 'x': 'x2'}]
 
 if __name__ == '__main__':
-  n = 1000
-  r = 100
+  n = 3
+  r = 10
   t1 = timeit.repeat(stmt   = "[dict(t) for t in {tuple(d.items()) for d in l}]",
                      setup  = "from __main__ import l",
                      number = n, repeat = r)
@@ -43,13 +42,13 @@ if __name__ == '__main__':
     "\n more_itertools.unique_everseen :", str("{:.8f}".format(min(t6))) + " - " + str("{:.8f}".format(max(t6))),
     "\n underscore._.uniq              :", str("{:.8f}".format(min(t7))) + " - " + str("{:.8f}".format(max(t7))), 
     "\n pydash.uniq                    :", str("{:.8f}".format(min(t8))) + " - " + str("{:.8f}".format(max(t8))))
-    
+
 # Remove Duplicates Benchmarking:
-#  set                            : 0.00149840 - 0.00559090
-#  list comprehension             : 0.00068970 - 0.00124390
-#  frozenset                      : 0.00139740 - 0.00431890
-#  cytoolz.unique                 : 0.00182090 - 0.00492530
-#  functional.seq                 : 0.00733270 - 0.01839610
-#  more_itertools.unique_everseen : 0.00203720 - 0.00533420
-#  underscore._.uniq              : 0.07901920 - 0.12107120
-#  pydash.uniq                    : 0.00180050 - 0.00411890
+#  set                            : 0.01445410 - 0.02452520
+#  list comprehension             : 0.92194630 - 0.99189070
+#  frozenset                      : 0.01971170 - 0.02251440
+#  cytoolz.unique                 : 0.03398420 - 0.03594400
+#  functional.seq                 : 0.01791830 - 0.03209410
+#  more_itertools.unique_everseen : 0.01833930 - 0.02351100
+#  underscore._.uniq              : 0.83479710 - 0.95693390
+#  pydash.uniq                    : 0.01862020 - 0.02926500
