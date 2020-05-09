@@ -6,3 +6,6 @@ def qcut(x, n):
   
 qcut(range(10), 3)
 # [3, 6]
+
+qcut(range(10), 5)
+# [1, 3, 5, 7]
